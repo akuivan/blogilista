@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+const http = require('http')
+const express = require('express')
+const app = express()
+const cors = require('cors')
+const mongoose = require('mongoose')
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const blogSchema = mongoose.Schema({
+  title: String,
+  author: String,
+  url: String,
+  likes: Number
+})
 
-export default App;
+const Blog = mongoose.model('Blog', blogSchema)
+
+const mongoUrl = 'mongodb://localhost/bloglist'
+mongoose.connect(mongoUrl)
+
+app.use(cors())
+app.use(express.json())
+
+app.get('/api/blogs', (request, response) => {
+  Blog
+    .find({})
+    .then(blogs => {
+      response.json(blogs)
+    })
+})
+
+app.post('/api/blogs', (request, response) => {
+  const blog = new Blog(request.body)
+
+  blog
+    .save()
+    .then(result => {
+      response.status(201).json(result)
+    })
+})
+
+const PORT = 3003
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`)
+})
