@@ -2,6 +2,9 @@ POST http://localhost:3003/api/blogs
 Content-Type: application/json
 
 {
-    "author": "testeriKolme",
-    "likes": 5
+    "title": "kirahvit",
+    "author": "viides",
+    "url": "www.kirahvit.com",
+    "likes": 13,
+    "user": "616be78e6c510c7da570037b"
 }
