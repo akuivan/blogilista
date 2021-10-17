@@ -15,10 +15,10 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "dev": "nodemon index.js",
+    "start": "cross-env NODE_ENV=production node index.js",
+    "dev": "cross-env NODE_ENV=development nodemon index.js",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "cross-env NODE_ENV=test jest --verbose --runInBand",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -40,6 +40,9 @@
     ]
   },
   "devDependencies": {
-    "nodemon": "^2.0.13"
+    "cross-env": "^7.0.3",
+    "jest": "^27.2.5",
+    "nodemon": "^2.0.13",
+    "supertest": "^6.1.6"
   }
 }
