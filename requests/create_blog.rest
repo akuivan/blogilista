@@ -1,10 +1,11 @@
 POST http://localhost:3003/api/blogs
 Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImthaGVrc2FzIiwiaWQiOiI2MTZkNTYwMTQ2MDhlOTNjOGJkNTViMmIiLCJpYXQiOjE2MzQ2MTg2ODl9.Qq5OW8PXgb3fCzSxbPc6Xp8BUU_-gTiAfoXlLygDgc0
 
 {
-    "title": "kirahvit",
-    "author": "viides",
-    "url": "www.kirahvit.com",
-    "likes": 13,
-    "user": "616be78e6c510c7da570037b"
+    "title": "kilpikonnat",
+    "author": "kaheksas",
+    "url": "www.kilpikonnat.com",
+    "likes": 133,
+    "user": "616d56014608e93c8bd55b2b"
 }
